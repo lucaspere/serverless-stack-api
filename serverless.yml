@@ -34,6 +34,14 @@ provider:
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:us-east-2:*:*"
 functions:
+  update:
+    handler: update.main
+    events:
+      - http:
+          path: notes/{id}
+          method: put
+          cors: true
+          authorizer: aws_iam
   list:
     handler: list.main
     events:
