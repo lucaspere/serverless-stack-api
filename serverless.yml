@@ -21,6 +21,7 @@ provider:
   # commit your .env.
   #
   environment:
+    stripeSecretKey: ${env:STRIPE_SECRET_KEY}
     tableName: notes
   iamRoleStatements:
     - Effect: Allow
@@ -34,6 +35,14 @@ provider:
         - dynamodb:DeleteItem
       Resource: "arn:aws:dynamodb:us-east-2:*:*"
 functions:
+  billing:
+    handler: billing.main
+    events:
+      - http:
+          path: billing
+          method: post
+          cors: true
+          authorizer: aws_iam
   update:
     handler: update.main
     events:
