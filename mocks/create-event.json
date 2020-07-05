@@ -1,5 +1,5 @@
 {
-   "body": "{\"content\":\"hello world\",\"attachment\":\"hello.jpg\"}",
+   "body": "{\"content\":\"Imagem do Lucas a qual ele usa pra fazer os bagulhos\",\"attachment\":\"Lucas.jpg\"}",
    "requestContext": {
      "identity": {
        "cognitoIdentityId": "USER-SUB-1234"
